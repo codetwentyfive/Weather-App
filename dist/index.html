@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="header-Icon"></div>
-        <input class="header-Searchbar" type="search">
-        <button class="scale-Button">°C/°F</button>
-
-    </nav>
+    <div class="search-container">
+        <input type="text" id="location-input" placeholder="Enter location">
+        <button id="search-button">Search</button>
+    </div>
+    <div class="weather-container">
+        <div class="weather-icon">
+            <img id="weather-icon" src="" alt="Weather Icon">
+        </div>
+        <div class="weather-info">
+            <h2 id="location-name"></h2>
+            <p id="temperature"></p>
+            <p id="weather-description"></p>
+        </div>
+    </div>
 </body>
 </html>
