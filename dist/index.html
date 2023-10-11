@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-    <div class="search-container">
-        <input type="text" id="location-input" placeholder="Enter location">
-        <button id="search-button">Search</button>
-    </div>
-    <div class="weather-container">
-        <div class="weather-icon">
-            <img id="weather-icon" src="" alt="Weather Icon">
+    <div class="container">
+        <h1>Weather App</h1>
+        <div id="weather-info">
+            <h2>Your Current Location:</h2>
+            <p id="location"></p>
+            <h2>Current Weather:</h2>
+            <p id="weather"></p>
         </div>
-        <div class="weather-info">
-            <h2 id="location-name"></h2>
-            <p id="temperature"></p>
-            <p id="weather-description"></p>
+        <div class="search-container">
+            <input type="text" id="location-input" placeholder="Enter location">
+            <button id="search-button">Search</button>
         </div>
     </div>
+    <script src="/src/index.js"></script>
 </body>
 </html>
