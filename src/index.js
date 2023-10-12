@@ -1,5 +1,12 @@
 let currentLocation = null; // Global variable to store the current location
 
+let currentWeatherInfo = {
+    location: '',
+    temperature: '',
+    condition: '',
+};
+
+
 // Function to get the user's current location
 async function getCurrentLocation() {
     return new Promise((resolve, reject) => {
@@ -54,18 +61,32 @@ async function fetchAndDisplayWeather(location) {
         const data = await response.json();
         const weatherElement = document.getElementById("weather");
         if (data.location && data.current) {
-            weatherElement.textContent = `Location: ${data.location.name}, Temperature: ${data.current.temp_c}°C, Weather: ${data.current.condition.text}`;
+            currentWeatherInfo.location = data.location.name;
+            currentWeatherInfo.temperature = `${data.current.temp_c}°C`;
+            currentWeatherInfo.condition = data.current.condition.text;
+
+            const weatherInfo = `Location: ${currentWeatherInfo.location}, Temperature: ${currentWeatherInfo.temperature}, Weather: ${currentWeatherInfo.condition}`;
+            weatherElement.textContent = weatherInfo;
         } else {
             weatherElement.textContent = "Weather information not found for this location.";
+            // Clear the properties in case of an error
+            currentWeatherInfo.location = '';
+            currentWeatherInfo.temperature = '';
+            currentWeatherInfo.condition = '';
         }
     } catch (error) {
         console.error("Error fetching weather data:", error);
+        // Clear the properties in case of an error
+        currentWeatherInfo.location = '';
+        currentWeatherInfo.temperature = '';
+        currentWeatherInfo.condition = '';
     }
 }
 
+
 // Handle the search button click
 const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", async function() {
+searchButton.addEventListener("click", async function () {
     const locationInput = document.getElementById("location-input");
     const location = locationInput.value;
     if (location) {
@@ -77,22 +98,70 @@ searchButton.addEventListener("click", async function() {
             if (!response.ok) {
                 throw new Error("Network response was not ok.");
             }
-
             const data = await response.json();
             const weatherElement = document.getElementById("weather");
             if (data.location && data.current) {
-                weatherElement.textContent = `Location: ${data.location.name}, Temperature: ${data.current.temp_c}°C, Weather: ${data.current.condition.text}`;
+                currentWeatherInfo.location = data.location.name;
+                currentWeatherInfo.temperature = `${data.current.temp_c}°C`;
+                currentWeatherInfo.condition = data.current.condition.text;
+
+                const weatherInfo = `Location: ${currentWeatherInfo.location}, Temperature: ${currentWeatherInfo.temperature}, Weather: ${currentWeatherInfo.condition}`;
+                weatherElement.textContent = weatherInfo;
             } else {
                 weatherElement.textContent = "Weather information not found for this location.";
+                // Clear the properties in case of an error
+                currentWeatherInfo.location = '';
+                currentWeatherInfo.temperature = '';
+                currentWeatherInfo.condition = '';
             }
         } catch (error) {
             console.error("Error fetching weather data:", error);
+            // Clear the properties in case of an error
+            currentWeatherInfo.location = '';
+            currentWeatherInfo.temperature = '';
+            currentWeatherInfo.condition = '';
         }
     }
-});
+    displayGifForCurrentWeather();
+})
+
+
+// Function to display a GIF based on the current weather
+async function displayGifForCurrentWeather() {
+    // Replace 'YOUR_GIPHY_API_KEY' with your actual Giphy API key
+    const giphyApiKey = '03jvLycdCqOiaZgJKu2fi2NlzRV0ANHt';
+    // Create a query based on the current weather condition
+    const query = currentWeatherInfo.condition;
+
+    // Construct the Giphy API URL
+    const giphyApiUrl = `https://api.giphy.com/v1/stickers/random?api_key=${giphyApiKey}&offset=0&tag=${query}`;
+
+    try {
+        const response = await fetch(giphyApiUrl);
+        if (!response.ok) {
+            throw new Error("Giphy API request failed.");
+        }
+
+        const data = await response.json();
+        if (data.data && data.data.images) {
+            const gifUrl = data.data.images.original.url;
+            const gifElement = document.getElementById("gif");
+            gifElement.innerHTML = `<img src="${gifUrl}" alt="${query} GIF">`;
+        } else {
+            console.error("No GIFs found for the given query.");
+        }
+    } catch (error) {
+        console.error("Error fetching GIF data:", error);
+    }
+}
+
 
 // Call functions to get the user's location and display the weather when the page loads
 window.addEventListener("load", async () => {
     await getCurrentLocationName(); // Get the user's current location
     await fetchAndDisplayWeather(currentLocation); // Fetch and display weather data
+    await displayGifForCurrentWeather(); // Display a GIF for the current weather
 });
+
+
+
