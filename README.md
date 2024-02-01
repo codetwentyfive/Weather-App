@@ -15,6 +15,10 @@ Weather App connects to weather <a href="weatherapi.com/">API</a> to provide act
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
+  <li>Weather API,for weather data</li>
+  <li><a href="https://opencagedata.com/">OpenCage Data API</a>,to grab the users current location</li>
+  <li><a href="https://giphy.com/">Giphy API</a>,to display animations depending on the weather</li>
+  
 </ul>
 
 This project is part of The Odin Project Curriculum: https://www.theodinproject.com/
