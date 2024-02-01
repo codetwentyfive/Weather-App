@@ -1,5 +1,5 @@
 # Weather App
-Weather App connects to weather <a href="weatherapi.com/">API</a> to provide actual weather forecasts for a specified city.
+Weather App connects to <a href="weatherapi.com/">Weather API</a> to provide actual weather forecasts for a specified city.
 
 
 <h2>💡 Skills </h2>
@@ -15,7 +15,7 @@ Weather App connects to weather <a href="weatherapi.com/">API</a> to provide act
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
-  <li>Weather API,for weather data</li>
+  <li><a href="weatherapi.com/">Weather API</a>,for weather data</li>
   <li><a href="https://opencagedata.com/">OpenCage Data API</a>,to grab the users current location</li>
   <li><a href="https://giphy.com/">Giphy API</a>,to display animations depending on the weather</li>
   
