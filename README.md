@@ -7,7 +7,7 @@ Weather App connects to <a href="weatherapi.com/">Weather API</a> to provide act
   <li>Data fetching</li>
   <li>Promises</li>
   <li>Async functions</li>
-  <li>Working with API</li>
+  <li>Working with API's</li>
 </ul>
 
 <h2>🛠️ Built with</h2>
