@@ -1,5 +1,5 @@
 # Weather App
-Weather App connects to <a href="weatherapi.com/">Weather API</a> to provide actual weather forecasts for a specified city.
+Weather App connects to multiple API's to provide actual weather forecasts for a specified city.
 
 
 <h2>💡 Skills </h2>
