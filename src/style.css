@@ -30,3 +30,273 @@ body {
     border: none;
     cursor: pointer;
 }
+body{
+  color: #f3f3f3;
+  background-color: rgb(43, 43, 43);
+  font-family: 'Roboto Slab';
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+} 
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: min(90%, 900px);
+  padding-right: 10px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  text-transform: lowercase;
+  margin-top: 50px;
+}
+
+.logo a,
+.logo a:visited,
+.logo a:active {
+  color: #5f5f5f;
+  font-size: 0.7rem;
+}
+
+.logo a:hover {
+  color: #a0a0a0;
+}
+
+.status-container {
+  font-size: 0.6rem;
+  margin-top: 5px;
+  text-transform: none;
+  color:#a0a0a0;
+}
+
+.hide {
+  scale: 0;
+}
+
+.search {
+  position: relative;
+  margin-top: 20px;
+}
+
+.search input {
+  background-color: #e7ebe9;
+  padding: 10px;
+}
+
+.search input::placeholder {
+  color: #a0a0a0;
+}
+
+.search button {
+  position: absolute;
+  z-index: 10; 
+  right: 10px; 
+  top: 20%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: #e7ebe9;
+}
+
+.search button:hover {
+  scale: 1.1;
+}
+
+.search button:active {
+  scale: 0.95;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location {
+  font-size: 0.5rem;
+}
+
+.location-date {
+  font-size: 1rem;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.temperature-container {
+  position: relative;
+  line-height: 100%;
+  font-size: 10rem;
+  font-weight: bolder; 
+  padding-right: 20px;
+  padding-left: 10px; 
+}
+
+.temperature::after {
+ content: '° C';
+ font-size: 1.2rem;
+ letter-spacing: -2px;
+ position: absolute;
+ top: -3rem;
+}
+
+.conditions-container {
+  padding-top: 1rem;
+  font-size: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
+
+.city-icon {
+  width: 64px;
+}
+
+.today-icon, .day-icon {
+  width: 48px;
+}
+
+.condition-text {
+  line-height: 1.3rem;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.condition-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.7em;
+  text-transform: capitalize;
+}
+
+.city-name::after {
+  text-transform: lowercase;
+  content: ' city';
+}
+
+.wind::after {
+  text-transform: lowercase;
+  content: ' km/h';
+}
+
+.feelslike::after {
+  content: '° C';
+}
+
+.week {
+  margin-top: 60px;
+  color: #5e5e5e;
+  display: flex;
+  background-color: #e2e2e2;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  width: 100dvw;
+  height: 180px;
+  text-transform: capitalize;
+}
+
+.svg-days {
+  fill: #5e5e5e;
+  width: 30px;
+  height: 30px;
+}
+
+.days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(10%, 110px);
+  position: relative;
+  font-size: 0.8rem;
+  line-height: 1px;
+  padding: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+
+.days-temperature {
+  position: relative;
+}
+
+.today {
+  background-color: #2086ea;
+  color: #f3f3f3;
+  height: 95%;
+}
+
+.svg-today {
+  fill: #f3f3f3;
+}
+
+.days-temperature::after {
+  content: '° C';
+  font-size: 0.5rem;
+  position: absolute;
+  right: -0.6rem;
+  top: -0.3rem;
+ }
+
+ @media screen and (min-width: 400px) {
+  .temperature-container {
+    font-size: 12rem;
+  }
+  .condition-text {
+    font-size: 1.2rem;
+  }
+  
+  .conditions-container {
+    font-size: 0.7rem;
+  }
+  
+  .location {
+    font-size: 0.7rem;
+  }
+  
+  .location-date {
+    font-size: 1.2rem;
+  }
+  
+  .days {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .temperature-container {
+    line-height: 90%;
+    font-size: 16rem;
+    padding-right: 45px;
+    padding-left: 10px; 
+  }
+  
+  .temperature::after {
+   font-size: 2rem;
+   letter-spacing: -3px;
+   top: -5rem;
+  }
+}
