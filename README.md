@@ -21,4 +21,4 @@ Link:<a href="https://weather-app-five-beryl.vercel.app">Weather App</a>
   
 </ul>
 
-This project is part of The Odin Project Curriculum: https://www.theodinproject.com/
+This project started as a part of The Odin Project Curriculum: https://www.theodinproject.com/
