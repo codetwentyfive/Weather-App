@@ -1,5 +1,5 @@
 # Weather App
-Weather App connects to multiple API's to provide actual weather forecasts for a specified city.
+Weather App connects to multiple API's to provide actual weather forecasts for a specified city.<br>
 Link:<a href="[weatherapi.com/](https://weather-app-five-beryl.vercel.app)">Weather App</a>
 
 <h2>💡 Skills </h2>
